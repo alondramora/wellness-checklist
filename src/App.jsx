@@ -1,16 +1,40 @@
+import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
+  const [newItem, setNewItem] = useState("");
+
   return (
     <>
       <form className="new-item-form">
         <div className="form-row">
-          <label htmlFor="inputItem">New Item</label>
-          <input type="text" id="inputItem" />
+          <label htmlFor="input">New Item</label>
+          <input
+            value={newItem}
+            onChange={(e) => setNewItem(e.target.value)}
+            type="text"
+            id="input"
+          />
         </div>
         <button className="btn">Add</button>
       </form>
       <h1>Wellness Checklist</h1>
+      <ul className="list">
+        <li>
+          <label>
+            <input type="checkbox" />
+            Study React
+          </label>
+          <button className="btn btn-danger">Delete</button>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" />
+            Item 2
+          </label>
+          <button className="btn btn-danger">Delete</button>
+        </li>
+      </ul>
     </>
   );
 }
