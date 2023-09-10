@@ -43,8 +43,12 @@ export default function App() {
 
   return (
     <>
-      <NewTodoForm onSubmit={addTodo} />
       <h1>Wellness Checklist</h1>
+      <p>
+        Add items to do your personal checklist to ensure you feel your best
+        today 🪴{" "}
+      </p>
+      <NewTodoForm onSubmit={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   );
