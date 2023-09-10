@@ -1,25 +1,20 @@
-export function TodoList({ todos }) {
+import { TodoItem } from "./TodoItem";
+
+export function TodoList({ todos, toggleTodo, deleteTodo }) {
   return (
     <ul className="list">
       {todos.length === 0 && "No todos"}
       {todos.map((todo) => {
         return (
-          <li key={todo.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                // onChange={(e) => toggleTodo(todo.id, e.target.checked)}
-              />
-              {todo.title}
-            </label>
-            <button
-              //   onClick={() => deleteTodo(todo.id)}
-              className="btn btn-danger"
-            >
-              Delete
-            </button>
-          </li>
+          <TodoItem
+            // if we were to do {...todo}, that would be the same as passing all of the props at once: id, title, and completed
+            id={todo.id}
+            title={todo.title}
+            completed={todo.completed}
+            key={todo.id}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+          />
         );
       })}
     </ul>
